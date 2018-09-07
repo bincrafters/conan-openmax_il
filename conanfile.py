@@ -2,40 +2,24 @@
 # -*- coding: utf-8 -*-
 
 from conans import ConanFile, tools
-import os
 
 
-class LibnameConan(ConanFile):
-    name = "libname"
-    version = "0.0.0"
-    url = "https://github.com/bincrafters/conan-libname"
+class OpenMAXILConan(ConanFile):
+    name = "openmax_il"
+    version = "1.1.2"
+    url = "https://github.com/bincrafters/conan-openmax_il"
     author = "Bincrafters <bincrafters@gmail.com>"
-    description = "Keep it short"
+    description = "OpenMAX™ IL is a royalty-free API that allows accelerated multimedia applications to be " \
+                  "developed and deployed across multiple operating systems and platforms"
     no_copy_source = True
-
-    # Indicates License type of the packaged library
-    license = "MIT"
-
-    # Packages the license for the conanfile.py
+    license = "Khronos"
     exports = ["LICENSE.md"]
 
-    # Custom attributes for Bincrafters recipe conventions
-    source_subfolder = "source_subfolder"
-
     def source(self):
-        source_url = "https://github.com/libauthor/libname"
-        tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.version))
-        extracted_dir = self.name + "-" + self.version
-
-        #Rename to "source_folder" is a convention to simplify later steps
-        os.rename(extracted_dir, self.source_subfolder)
-
+        tools.get('https://www.khronos.org/registry/OpenMAX-IL/api/1.1.2/OpenMAX_IL_1_1_2_Header.zip')
 
     def package(self):
-        include_folder = os.path.join(self.source_subfolder, "include")
-        self.copy(pattern="LICENSE", dst="license", src=self.source_subfolder)
-        self.copy(pattern="*", dst="include", src=include_folder)
-
+        self.copy(pattern="*.h", dst="include")
 
     def package_id(self):
         self.info.header_only()
