@@ -5,7 +5,6 @@ class OpenMAXILConan(ConanFile):
     name = "openmax_il"
     version = "1.1.2"
     url = "https://github.com/bincrafters/conan-openmax_il"
-    author = "Bincrafters <bincrafters@gmail.com>"
     description = "OpenMAX™ IL is a royalty-free API that allows accelerated multimedia applications to be " \
                   "developed and deployed across multiple operating systems and platforms"
     no_copy_source = True
