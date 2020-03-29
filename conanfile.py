@@ -9,7 +9,6 @@ class OpenMAXILConan(ConanFile):
                   "developed and deployed across multiple operating systems and platforms"
     no_copy_source = True
     license = "Khronos"
-    exports = ["LICENSE.md"]
 
     def source(self):
         tools.get('https://www.khronos.org/registry/OpenMAX-IL/api/1.1.2/OpenMAX_IL_1_1_2_Header.zip')
